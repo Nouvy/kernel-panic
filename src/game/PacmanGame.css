@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.pacman-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0a0a0a;
+  background-image:
+    radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 70%);
+  font-family: 'Press Start 2P', monospace;
+  padding: 20px;
+}
+
+.pacman-cabinet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, #0a1a0e 0%, #0d2818 50%, #0a3020 100%);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow:
+    0 0 30px rgba(0, 204, 102, 0.3),
+    0 0 60px rgba(0, 204, 102, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 2px solid #00CC66;
+}
+
+.cabinet-top {
+  margin-bottom: 15px;
+}
+
+.marquee {
+  background: linear-gradient(180deg, #001a0d 0%, #003319 50%, #001a0d 100%);
+  padding: 10px 40px;
+  border-radius: 10px;
+  border: 2px solid #00FF66;
+  box-shadow:
+    0 0 20px rgba(0, 255, 102, 0.4),
+    inset 0 0 20px rgba(0, 255, 102, 0.1);
+}
+
+.marquee-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00FF00;
+  text-shadow:
+    0 0 10px #00FF00,
+    0 0 20px #00CC00,
+    0 0 40px #009900;
+  letter-spacing: 6px;
+}
+
+.screen-bezel {
+  background: #000000;
+  padding: 8px;
+  border-radius: 8px;
+  border: 3px solid #333333;
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.pacman-canvas {
+  display: block;
+  border-radius: 4px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.cabinet-controls {
+  margin-top: 15px;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 2px 6px;
+  background: linear-gradient(180deg, #444 0%, #222 100%);
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  box-shadow:
+    0 2px 0 #111,
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.control-label {
+  color: #888888;
+  font-size: 8px;
+  font-family: 'Press Start 2P', monospace;
+  margin-left: 4px;
+}
+
+/* Scanline effect */
+.pacman-canvas::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+/* Responsive scaling */
+@media (max-height: 800px) {
+  .pacman-canvas {
+    transform: scale(0.85);
+    transform-origin: top center;
+  }
+
+  .pacman-cabinet {
+    padding: 10px;
+  }
+
+  .marquee-text {
+    font-size: 18px;
+  }
+}
